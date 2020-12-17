@@ -1,0 +1,29 @@
+TARGET = enc_stat_lib
+CFLAGS = -c -std=c99 -Wall
+
+all: encoder
+
+encoder: encoder.o enc_stat_lib.a
+	gcc -std=c99 -Wall -o encoder encoder.o enc_stat_lib.a
+
+encoder.o: encoder.c
+	gcc $(CFLAGS) encoder.c
+
+enc_stat_lib.a: m_upperlower.o m_strip.o m_caesar.o m_xor.o
+	ar -rs enc_stat_lib.a m_upperlower.o m_strip.o m_caesar.o m_xor.o
+
+m_upperlower.o: m_upperlower.c
+	gcc $(CFLAGS) m_upperlower.c
+
+m_strip.o: m_strip.c
+	gcc $(CFLAGS) m_strip.c
+
+m_caesar.o: m_caesar.c
+	gcc $(CFLAGS) m_caesar.c
+
+m_xor.o: m_xor.c
+	gcc $(CFLAGS) m_xor.c
+
+clean:
+	rm -rf *.o encoder
+	rm -rf *.a encoder
