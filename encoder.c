@@ -7,9 +7,13 @@
 #include <stdlib.h>
 
 int main(int argc, char** argv){
-	if (argc < 3){
+	if (argc < 4){
 		printf("Не достаточно введённых данных.\n");
 		printf("Ввод доолжен включать: вид кодирования, кодируймое слово, сдвиг/пароль.\n");
+		return 0;
+	}
+	if ( (strcmp(argv[1], "-caesar") == 0)||(strcmp(argv[1], "-xor") == 0) ){
+		printf("Пожалуйста вводите два '-' в аргумент кодера. Пример: --caesar\n");
 		return 0;
 	}
 	mutible_tolower(argv[2]);
