@@ -5,7 +5,8 @@
 
 void mutible_code_xor(char* str, char* key){
 	if (strlen(key) < strlen(str)){
-		printf("Key length must not be shorter than the string.\n");
+		printf("Key length must not be shorter than the string.");
+		printf(" No changes made.\n");
 		return;
 	}
 	while (*str != '\0'){

@@ -1,7 +1,7 @@
-#include "modules/m_upperlower.h"
-#include "modules/m_strip.h"
-#include "modules/m_caesar.h"
-#include "modules/m_xor.h"
+#include "../modules/m_upperlower.h"
+#include "../modules/m_strip.h"
+#include "../modules/m_caesar.h"
+#include "../modules/m_xor.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -25,6 +25,14 @@ int main(int argc, char** argv){
 	if (strcmp(argv[1],"--xor") == 0){
 		mutible_code_xor(argv[2], argv[3]);
 		mutible_tolower(argv[2]);
+		char *xor_walker;
+		xor_walker = argv[2];
+		printf("Числовые значения xor вывода: ");
+		while (*xor_walker != '\0'){
+			printf("%d ", *xor_walker);
+			xor_walker++;
+		}
+		printf("\n");
 	}
 
 	if (argv[2] == NULL){
