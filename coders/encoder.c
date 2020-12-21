@@ -1,13 +1,13 @@
-#include "m_upperlower.h"
-#include "m_strip.h"
-#include "m_caesar.h"
-#include "m_xor.h"
+#include "modules/m_upperlower.h"
+#include "modules/m_strip.h"
+#include "modules/m_caesar.h"
+#include "modules/m_xor.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
 int main(int argc, char** argv){
-	if (argc < 3){
+	if (argc < 4){
 		printf("Не достаточно введённых данных.\n");
 		printf("Ввод доолжен включать: вид кодирования, кодируймое слово, сдвиг/пароль.\n");
 		return 0;
@@ -20,7 +20,7 @@ int main(int argc, char** argv){
 	mutible_strip(argv[2]);
 	if (strcmp(argv[1], "--caesar") == 0){
 		int x = atoi(argv[3]);
-		mutible_decode_caesar(argv[2], x);
+		mutible_encode_caesar(argv[2], x);
 	}
 	if (strcmp(argv[1],"--xor") == 0){
 		mutible_code_xor(argv[2], argv[3]);
