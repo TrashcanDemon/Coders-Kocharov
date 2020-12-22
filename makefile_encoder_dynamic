@@ -2,15 +2,15 @@ FORLIBRARY = upperlower.o strip.o caesar.o xor.o
 
 LIBRARY = dec_dyn_lib.so
 
-TARGET = decoder
+TARGET = encoder
 
-all: decoder
+all: encoder
 
-$(TARGET): decoder.o dec_dyn_lib.so
-	gcc decoder.o -o encoder -std=c99 -L. -Wl,-rpath,. -Wall -Werror
+$(TARGET): encoder.o dec_dyn_lib.so
+	gcc encoder.o -o encoder -std=c99 -L. -Wl,-rpath,. -Wall -Werror
 	rm upperlower.o strip.o caesar.o xor.o encoder.o
 
-encoder.o: coders/decoder.c
+encoder.o: coders/encoder.c
 	gcc $< -c -std=c99 -Wall -Werror
 
 $(LIBRARY): $(FORLIBRARY)
