@@ -1,12 +1,12 @@
 FORLIBRARY = upperlower.o strip.o caesar.o xor.o
 
-LIBRARY = dec_dyn_lib.so
+LIBRARY = LibDecDyn.so
 
 TARGET = encoder
 
 all: encoder
 
-$(TARGET): encoder.o dec_dyn_lib.so
+$(TARGET): encoder.o LibDecDyn.so
 	gcc encoder.o -o encoder -std=c99 -L. -Wl,-rpath,. -Wall -Werror
 	rm upperlower.o strip.o caesar.o xor.o encoder.o
 
@@ -29,5 +29,5 @@ xor.o: modules/xor.c
 	gcc -c -fPIC $< -std=c99 -Wall -Werror
 
 clean:
-	rm -f *.o encoder
+	rm -rf *.o $(TARGET)
 	rm -rf *.so $(TARGET)
