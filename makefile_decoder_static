@@ -13,16 +13,16 @@ decoder.o: coders/decoder.c
 dec_stat_lib.a: upperlower.o strip.o caesar.o xor.o
 	ar -rs dec_stat_lib.a upperlower.o strip.o caesar.o xor.o
 
-m_upperlower.o: modules/upperlower.c
+upperlower.o: modules/upperlower.c
 	gcc $(CFLAGS) modules/upperlower.c
 
-m_strip.o: modules/strip.c
+strip.o: modules/strip.c
 	gcc $(CFLAGS) modules/strip.c
 
-m_caesar.o: modules/caesar.c
+caesar.o: modules/caesar.c
 	gcc $(CFLAGS) modules/caesar.c
 
-m_xor.o: modules/xor.c
+xor.o: modules/xor.c
 	gcc $(CFLAGS) modules/xor.c
 
 clean:
