@@ -1,7 +1,7 @@
-#include "m_isstring.h"
+#include "isstring.h"
 #include <string.h>
 
-int isstring(char *str){
+int isString(char *str){
 	while ( (*str != '\0')
 			&&(((*str >= 'A') && (*str <= 'Z'))
 			 ||((*str >= 'a') && (*str <= 'z'))) ){	

@@ -1,8 +1,8 @@
-#include "m_caesar.h"
+#include "caesar.h"
 #include <string.h>
 #include <stdlib.h>
 
-void mutible_encode_caesar(char* str, int x){
+void mutibleEncodeCaesar(char* str, int x){
 	while (*str != '\0'){
 		if ( (*str >= 'A')&&(*str <= 'Z') ){
 			if ((*str + x) > 91){
@@ -24,22 +24,22 @@ void mutible_encode_caesar(char* str, int x){
 	}
 }
 
-char* immutible_encode_caesar(char* str, int x){
-	char *str_new;
-	char *str_ret;
-	str_new = (char*)malloc(sizeof(char)*(strlen(str)+1));
-	str_ret = str_new;
+char* immutibleEncodeCaesar(char* str, int x){
+	char *strNew;
+	char *strRet;
+	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
+	strRet = strNew;
 	while (*str != '\0'){
-		*str_new = *str;
-		str_new++;
+		*strNew = *str;
+		strNew++;
 		str++;
 	}
-	mutible_encode_caesar(str_ret, x);
-	return str_ret;
+	mutibleEncodeCaesar(strRet, x);
+	return strRet;
 
 }
 
-void mutible_decode_caesar(char* str, int x){
+void mutibleDecodeCaesar(char* str, int x){
 	while (*str != '\0'){
 		if ( (*str >= 'A')&&(*str <= 'Z') ){
 			if ((*str - x) < 65){
@@ -62,17 +62,17 @@ void mutible_decode_caesar(char* str, int x){
 
 }
 
-char* immutible_decode_caesar(char* str, int x){
-	char *str_new;
-	char *str_ret;
-	str_new = (char*)malloc(sizeof(char)*(strlen(str)+1));
-	str_ret = str_new;
+char* immutibleDecodeCaesar(char* str, int x){
+	char *strNew;
+	char *strRet;
+	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
+	strRet = strNew;
 	while (*str != '\0'){
-		*str_new = *str;
-		str_new++;
+		*strNew = *str;
+		strNew++;
 		str++;
 	}
-	mutible_decode_caesar(str_ret, x);
-	return str_ret;
+	mutibleDecodeCaesar(strRet, x);
+	return strRet;
 
 }

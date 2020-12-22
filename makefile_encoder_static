@@ -5,25 +5,25 @@ all: encoder
 
 encoder: encoder.o enc_stat_lib.a
 	gcc -std=c99 -Wall -o encoder encoder.o enc_stat_lib.a
-	rm m_upperlower.o m_strip.o m_caesar.o m_xor.o encoder.o
+	rm upperlower.o strip.o caesar.o xor.o encoder.o
 
 encoder.o: coders/encoder.c
 	gcc $(CFLAGS) coders/encoder.c
 
-enc_stat_lib.a: m_upperlower.o m_strip.o m_caesar.o m_xor.o
-	ar -rs enc_stat_lib.a m_upperlower.o m_strip.o m_caesar.o m_xor.o
+enc_stat_lib.a: upperlower.o strip.o caesar.o xor.o
+	ar -rs enc_stat_lib.a upperlower.o strip.o caesar.o xor.o
 
-m_upperlower.o: modules/m_upperlower.c
-	gcc $(CFLAGS) modules/m_upperlower.c
+m_upperlower.o: modules/upperlower.c
+	gcc $(CFLAGS) modules/upperlower.c
 
-m_strip.o: modules/m_strip.c
-	gcc $(CFLAGS) modules/m_strip.c
+m_strip.o: modules/strip.c
+	gcc $(CFLAGS) modules/strip.c
 
-m_caesar.o: modules/m_caesar.c
-	gcc $(CFLAGS) modules/m_caesar.c
+m_caesar.o: modules/caesar.c
+	gcc $(CFLAGS) modules/caesar.c
 
-m_xor.o: modules/m_xor.c
-	gcc $(CFLAGS) modules/m_xor.c
+m_xor.o: modules/xor.c
+	gcc $(CFLAGS) modules/xor.c
 
 clean:
 	rm -rf *.o encoder

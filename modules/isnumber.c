@@ -1,7 +1,7 @@
-#include "m_isnumber.h"
+#include "isnumber.h"
 #include <string.h>
 
-int isnumber(char *str){
+int isNumber(char *str){
 	if ((*str == '+')||(*str == '-')){
 			str++;
 	}

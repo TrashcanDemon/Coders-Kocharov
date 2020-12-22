@@ -1,7 +1,7 @@
-#include "../modules/m_upperlower.h"
-#include "../modules/m_strip.h"
-#include "../modules/m_caesar.h"
-#include "../modules/m_xor.h"
+#include "../modules/upperlower.h"
+#include "../modules/strip.h"
+#include "../modules/caesar.h"
+#include "../modules/xor.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -16,21 +16,21 @@ int main(int argc, char** argv){
 		printf("Пожалуйста вводите два '-' в аргумент кодера. Пример: --caesar\n");
 		return 0;
 	}
-	mutible_tolower(argv[2]);
-	mutible_strip(argv[2]);
+	mutibleToLower(argv[2]);
+	mutibleStrip(argv[2]);
 	if (strcmp(argv[1], "--caesar") == 0){
 		int x = atoi(argv[3]);
-		mutible_decode_caesar(argv[2], x);
+		mutibleDecodeCaesar(argv[2], x);
 	}
 	if (strcmp(argv[1],"--xor") == 0){
-		mutible_code_xor(argv[2], argv[3]);
-		mutible_tolower(argv[2]);
-		char *xor_walker;
-		xor_walker = argv[2];
+		mutibleCodeXor(argv[2], argv[3]);
+		mutibleToLower(argv[2]);
+		char *xorWalker;
+		xorWalker = argv[2];
 		printf("Числовые значения xor вывода: ");
-		while (*xor_walker != '\0'){
-			printf("%d ", *xor_walker);
-			xor_walker++;
+		while (*xorWalker != '\0'){
+			printf("%d ", *xorWalker);
+			xorWalker++;
 		}
 		printf("\n");
 	}

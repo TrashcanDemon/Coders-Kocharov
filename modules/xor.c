@@ -1,9 +1,9 @@
-#include "m_xor.h"
+#include "xor.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-void mutible_code_xor(char* str, char* key){
+void mutibleCodeXor(char* str, char* key){
 	if (strlen(key) < strlen(str)){
 		printf("Key length must not be shorter than the string.");
 		printf(" No changes made.\n");
@@ -18,21 +18,21 @@ void mutible_code_xor(char* str, char* key){
 	}
 }
 
-char* immutible_code_xor(char* str, char* key){
+char* immutibleCodeXor(char* str, char* key){
 	if (strlen(key) < strlen(str)){
 		printf("Key length must not be shorter than the string.\n");
 		return (NULL);
 	}
-	char *str_new;
-	char *str_ret;
-	str_new = (char*)malloc(sizeof(char)*(strlen(str)+1));
-	str_ret = str_new;
+	char *strNew;
+	char *strRet;
+	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
+	strRet = strNew;
 	while (*str != '\0'){
-		*str_new = *str;
-		str_new++;
+		*strNew = *str;
+		strNew++;
 		str++;
 	}
-	mutible_code_xor(str_ret, key);
-	return str_ret;
+	mutibleCodeXor(strRet, key);
+	return strRet;
 
 }
