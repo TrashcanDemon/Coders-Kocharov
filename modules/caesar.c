@@ -34,6 +34,7 @@ char* immutibleEncodeCaesar(char* str, int x){
 		strNew++;
 		str++;
 	}
+	*strNew = '\0';
 	mutibleEncodeCaesar(strRet, x);
 	return strRet;
 
@@ -72,6 +73,7 @@ char* immutibleDecodeCaesar(char* str, int x){
 		strNew++;
 		str++;
 	}
+	*strNew = '\0';
 	mutibleDecodeCaesar(strRet, x);
 	return strRet;
 

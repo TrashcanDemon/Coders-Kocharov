@@ -52,6 +52,7 @@ char* immutibleFilt(char* str){
 		strNew++;
 		str++;
 	}
+	*strNew = '\0';
 	mutibleFilt(strRet);
 	return strRet;
 }

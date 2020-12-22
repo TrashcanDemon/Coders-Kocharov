@@ -38,6 +38,7 @@ char* immutibleStrip(char* str){
 		strNew++;
 		str++;
 	}
+	*strNew = '\0';
 	mutibleStrip(strRet);
 	return strRet;
 }

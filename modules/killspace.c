@@ -38,6 +38,7 @@ char* immutibleKillSpace(char* str){
 		strNew++;
 		str++;
 	}
+	*strNew = '\0';
 	mutibleKillSpace(strRet);
 	return strRet;
 }

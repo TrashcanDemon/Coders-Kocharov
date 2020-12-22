@@ -32,6 +32,7 @@ char* immutibleCodeXor(char* str, char* key){
 		strNew++;
 		str++;
 	}
+	*strNew = '\0';
 	mutibleCodeXor(strRet, key);
 	return strRet;
 
