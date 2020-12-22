@@ -23,12 +23,13 @@ int main(int argc, char** argv){
 		mutibleDecodeCaesar(argv[2], x);
 	}
 	if (strcmp(argv[1],"--xor") == 0){
+		int oldLength = strlen(argv[2])+1;
 		mutibleCodeXor(argv[2], argv[3]);
 		mutibleToLower(argv[2]);
 		char *xorWalker;
 		xorWalker = argv[2];
 		printf("Числовые значения xor вывода: ");
-		while (*xorWalker != '\0'){
+		for(int i = 0; i < oldLength; i++){
 			printf("%d ", *xorWalker);
 			xorWalker++;
 		}
