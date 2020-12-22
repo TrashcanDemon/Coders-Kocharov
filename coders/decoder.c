@@ -123,6 +123,9 @@ int main(int argc, char** argv){
 				return 0;
 			}
 			printf("%s\n", codableRet);
+			free(typeRet);
+			free(keyRet);
+			free(codableRet);
 			return 0;
 			}
 }
