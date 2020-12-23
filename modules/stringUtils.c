@@ -9,17 +9,13 @@ char* immutableToLower(char* str){
 	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
 	strRet = strNew;
 	while (*str != '\0'){
-		if (*str >= 'A' && *str <= 'Z'){
-			*strNew = *str + 32;
-		}
-		else{
-			*strNew = *str;
-		}
+		*strNew = *str;
 		strNew++;
 		str++;
 	}
-
 	*strNew = '\0';
+
+	mutableToLower(strRet);
 	return strRet;
 }
 
@@ -30,17 +26,13 @@ char* immutableToUpper(char* str){
 	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
 	strRet = strNew;
 	while (*str != '\0'){
-		if (*str >= 'a' && *str <= 'z'){
-			*strNew = *str - 32;
-		}
-		else{
-			*strNew = *str;
-		}
+		*strNew = *str;
 		strNew++;
 		str++;
 	}
-
 	*strNew = '\0';
+
+	mutableToUpper(strRet);
 	return strRet;
 }
 
