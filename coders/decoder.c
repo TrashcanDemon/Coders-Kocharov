@@ -1,7 +1,5 @@
-#include "../modules/upperlower.h"
-#include "../modules/strip.h"
-#include "../modules/caesar.h"
-#include "../modules/xor.h"
+#include "../modules/stringUtils.h"
+#include "../modules/caesarXor.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

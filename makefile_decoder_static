@@ -5,25 +5,19 @@ all: decoder
 
 decoder: decoder.o dec_stat_lib.a
 	gcc -std=c99 -Wall -o decoder decoder.o dec_stat_lib.a
-	rm upperlower.o strip.o caesar.o xor.o decoder.o
+	rm caesarXor.o stringUtils.o decoder.o
 
 decoder.o: coders/decoder.c
 	gcc $(CFLAGS) coders/decoder.c
 
-dec_stat_lib.a: upperlower.o strip.o caesar.o xor.o
-	ar -rs dec_stat_lib.a upperlower.o strip.o caesar.o xor.o
+dec_stat_lib.a: stringUtils.o caesarXor.o
+	ar -rs dec_stat_lib.a stringUtils.o caesarXor.o
 
-upperlower.o: modules/upperlower.c
-	gcc $(CFLAGS) modules/upperlower.c
+stringUtils.o: modules/stringUtils.c
+	gcc $(CFLAGS) modules/stringUtils.c
 
-strip.o: modules/strip.c
-	gcc $(CFLAGS) modules/strip.c
-
-caesar.o: modules/caesar.c
-	gcc $(CFLAGS) modules/caesar.c
-
-xor.o: modules/xor.c
-	gcc $(CFLAGS) modules/xor.c
+caesarXor.o: modules/caesarXor.c
+	gcc $(CFLAGS) modules/caesarXor.c
 
 clean:
 	rm -rf *.o decoder

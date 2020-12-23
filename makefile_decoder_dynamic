@@ -1,4 +1,4 @@
-FORLIBRARY = upperlower.o strip.o caesar.o xor.o
+FORLIBRARY = stringUtils.o caesarXor.o
 
 LIBRARY = libDecDyn.so
 
@@ -8,24 +8,18 @@ all: decoder
 
 $(TARGET): decoder.o libDecDyn.so
 	gcc decoder.o -o decoder -std=c99 -L. -lDecDyn -Wl,-rpath,. -Wall -Werror
-	rm upperlower.o strip.o caesar.o xor.o decoder.o
+	rm stringUtils.o caesarXor.o decoder.o
 
 decoder.o: coders/decoder.c
 	gcc $< -c -std=c99 -Wall -Werror
 
 $(LIBRARY): $(FORLIBRARY)
-	gcc  upperlower.o strip.o caesar.o xor.o -shared -o $(LIBRARY)
+	gcc  stringUtils.o caesarXor.o -shared -o $(LIBRARY)
 
-upperlower.o: modules/upperlower.c
+stringUtils.o: modules/stringUtils.c
 	gcc -c -fPIC $< -std=c99 -Wall -Werror
 
-strip.o: modules/strip.c
-	gcc -c -fPIC $< -std=c99 -Wall -Werror
-
-caesar.o: modules/caesar.c
-	gcc -c -fPIC $< -std=c99 -Wall -Werror
-
-xor.o: modules/xor.c
+caesarXor.o: modules/caesarXor.c
 	gcc -c -fPIC $< -std=c99 -Wall -Werror
 
 clean:
