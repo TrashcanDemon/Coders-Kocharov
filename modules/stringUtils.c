@@ -69,11 +69,11 @@ void mutibleKillSpace(char* str){
 
 	strFirst = str;
 	strLast = str;	
-	while (*strFirst == ' '){
-		strFirst++;
-	}
 	while (*strLast != '\0'){
 		strLast++;
+		if (*strFirst == ' '){
+			strFirst++;
+		}
 	}
 	while (*strLast == ' '){
 		strLast--;
@@ -154,11 +154,11 @@ void mutibleFilt(char* str){
 
 	strFirst = str;
 	strLast = str;	
-	while (isCorrect(*strFirst) == 1){
-		strFirst++;
-	}
 	while (*strLast != '\0'){
 		strLast++;
+		if (isCorrect(*strFirst) == 1){
+			strFirst++;
+		}
 	}
 	while (isCorrect(*strFirst) == 1){
 		strLast--;
@@ -196,11 +196,11 @@ void mutibleStrip(char* str){
 
 	strFirst = str;
 	strLast = str;	
-	while (*strFirst == ' '){
-		strFirst++;
-	}
 	while (*strLast != '\0'){
 		strLast++;
+		if (*strFirst == ' '){
+			strFirst++;
+		}
 	}
 	strLast--;
 	while (*strLast == ' '){
