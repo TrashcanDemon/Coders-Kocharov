@@ -18,7 +18,15 @@ int main(int argc, char** argv){
 		mutableToLower(argv[2]);
 		mutableStrip(argv[2]);
 		if (strcmp(argv[1], "--caesar") == 0){
-			int x = atoi(argv[3]);
+			int x;
+			int isNum = isNumber(argv[3]);
+			if (isNum == 1){
+				x = atoi(argv[3]);
+			}
+			else{
+				printf("Сдвиг по цезарю не может содержать других символов. Попробуйте ещё раз.\n");
+				return 0;
+			}
 			mutableEncodeCaesar(argv[2], x);
 		}
 		if (strcmp(argv[1],"--xor") == 0){
@@ -52,10 +60,6 @@ int main(int argc, char** argv){
 		printf("Для расширенной работы с кодерами используйте аргументы.\n");
 		printf("Введите тип кодирования: 'caesar' или 'xor'.\n");
 		scanf("%s", &readType[0]);
-		printf("Введите кодируймое слово.\n");
-		scanf("%s", &readWord[0]);
-		printf("Введите ключ/отступ.\n");
-		scanf("%s", &readKey[0]);
 		
 		char *type;
 		char *typeRet;
@@ -67,6 +71,16 @@ int main(int argc, char** argv){
 			i++;
 		}
 		*type = '\0';
+		if ( (strcmp(typeRet, "caesar") != 0)&&(strcmp(typeRet, "xor") != 0) ){
+			printf("Пожалуйста вводите только caesar или xor в аргумент кодера. Пример: caesar\n");
+			free(typeRet);
+			return 0;
+		}
+		
+		printf("Введите кодируймое слово.\n");
+		scanf("%s", &readWord[0]);
+		printf("Введите ключ/отступ.\n");
+		scanf("%s", &readKey[0]);
 		
 		char *key;
 		char *keyRet;
@@ -79,11 +93,6 @@ int main(int argc, char** argv){
 			i++;
 		}
 		*key = '\0';
-		
-		if ( (strcmp(typeRet, "caesar") != 0)&&(strcmp(typeRet, "xor") != 0) ){
-			printf("Пожалуйста вводите только caesar или xor в аргумент кодера. Пример: caesar\n");
-			return 0;
-		}
 
 		char *codableWord;
 		char *codableRet;
@@ -100,7 +109,18 @@ int main(int argc, char** argv){
 		mutableToLower(codableRet);
 		mutableStrip(codableRet);
 		if (strcmp(typeRet, "caesar") == 0){
-			int x = atoi(keyRet);
+			int x;
+			int isNum = isNumber(keyRet);
+			if (isNum == 1){
+				x = atoi(keyRet);
+			}
+			else{
+				printf("Сдвиг по цезарю не может содержать других символов. Попробуйте ещё раз.\n");
+				free(typeRet);
+				free(keyRet);
+				free(codableRet);
+				return 0;
+			}
 			mutableEncodeCaesar(codableRet, x);
 		}
 		if (strcmp(typeRet,"xor") == 0){
