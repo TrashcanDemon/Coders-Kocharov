@@ -1,14 +1,14 @@
 #ifndef CAESARXOR_H
 #define CAESARXOR_H
-void mutibleEncodeCaesar(char* str, int x);
+void mutableEncodeCaesar(char* str, int x);
 
-char* immutibleEncodeCaesar(char* str, int x);
+char* immutableEncodeCaesar(char* str, int x);
 
-void mutibleDecodeCaesar(char* str, int x);
+void mutableDecodeCaesar(char* str, int x);
 
-char* immutibleDecodeCaesar(char* str, int x);
+char* immutableDecodeCaesar(char* str, int x);
 
-void mutibleCodeXor(char* str, char* key);
+void mutableCodeXor(char* str, char* key);
 
-char* immutibleCodeXor(char* str, char* key);
+char* immutableCodeXor(char* str, char* key);
 #endif

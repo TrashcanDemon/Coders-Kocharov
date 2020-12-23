@@ -15,16 +15,16 @@ int main(int argc, char** argv){
 			printf("Пожалуйста вводите два '-' в аргумент кодера. Пример: --caesar\n");
 			return 0;
 		}
-		mutibleToLower(argv[2]);
-		mutibleStrip(argv[2]);
+		mutableToLower(argv[2]);
+		mutableStrip(argv[2]);
 		if (strcmp(argv[1], "--caesar") == 0){
 			int x = atoi(argv[3]);
-			mutibleDecodeCaesar(argv[2], x);
+			mutableDecodeCaesar(argv[2], x);
 		}
 		if (strcmp(argv[1],"--xor") == 0){
 			int oldLength = strlen(argv[2]);
-			mutibleCodeXor(argv[2], argv[3]);
-			mutibleToLower(argv[2]);
+			mutableCodeXor(argv[2], argv[3]);
+			mutableToLower(argv[2]);
 			char *xorWalker;
 			xorWalker = argv[2];
 			printf("Числовые значения xor вывода: ");
@@ -97,16 +97,16 @@ int main(int argc, char** argv){
 		}
 		*codableWord = '\0';
 
-		mutibleToLower(codableRet);
-		mutibleStrip(codableRet);
+		mutableToLower(codableRet);
+		mutableStrip(codableRet);
 		if (strcmp(typeRet, "caesar") == 0){
 			int x = atoi(keyRet);
-			mutibleDecodeCaesar(codableRet, x);
+			mutableDecodeCaesar(codableRet, x);
 		}
 		if (strcmp(typeRet,"xor") == 0){
 			int oldLength = strlen(codableRet);
-			mutibleCodeXor(codableRet, keyRet);
-			mutibleToLower(codableRet);
+			mutableCodeXor(codableRet, keyRet);
+			mutableToLower(codableRet);
 			char *xorWalker;
 			xorWalker = codableRet;
 			printf("Числовые значения xor вывода: ");

@@ -1,17 +1,17 @@
 #ifndef STRINGUTILS_H
 #define STRINGUTILS_H
-char* immutibleToUpper(char* str);
+char* immutableToUpper(char* str);
 
-char* immutibleToLower(char* str);
+char* immutableToLower(char* str);
 
-void mutibleToUpper(char* str);
+void mutableToUpper(char* str);
 
-void mutibleToLower(char* str);
+void mutableToLower(char* str);
 
 
-void mutibleKillSpace(char* str);
+void mutableKillSpace(char* str);
 
-char* immutibleKillSpace();
+char* immutableKillSpace();
 
 
 int isString(char *str);
@@ -19,12 +19,12 @@ int isString(char *str);
 int isNumber(char *str);
 
 
-void mutibleFilt(char* str);
+void mutableFilt(char* str);
 
-char* immutibleFilt(char* str);
+char* immutableFilt(char* str);
 
 
-void mutibleStrip(char* str);
+void mutableStrip(char* str);
 
-char* immutibleStrip(char* str);
+char* immutableStrip(char* str);
 #endif

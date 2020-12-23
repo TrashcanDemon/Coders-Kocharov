@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-char* immutibleToLower(char* str){
+char* immutableToLower(char* str){
 	char *strNew;
 	char *strRet;
 
@@ -23,7 +23,7 @@ char* immutibleToLower(char* str){
 	return strRet;
 }
 
-char* immutibleToUpper(char* str){
+char* immutableToUpper(char* str){
 	char *strNew;
 	char *strRet;
 
@@ -44,7 +44,7 @@ char* immutibleToUpper(char* str){
 	return strRet;
 }
 
-void mutibleToLower(char* str){
+void mutableToLower(char* str){
 	while (*str != '\0'){
 		if (*str >= 'A' && *str <= 'Z'){
 			*str = *str + 32;
@@ -53,7 +53,7 @@ void mutibleToLower(char* str){
 	}
 }
 
-void mutibleToUpper(char* str){
+void mutableToUpper(char* str){
 	while (*str != '\0'){
 		if (*str >= 'a' && *str <= 'z'){
 			*str = *str - 32;
@@ -63,7 +63,7 @@ void mutibleToUpper(char* str){
 }
 
 
-void mutibleKillSpace(char* str){
+void mutableKillSpace(char* str){
 	char *strFirst;
 	char *strLast;
 
@@ -89,7 +89,7 @@ void mutibleKillSpace(char* str){
 	str = '\0';
 }
 
-char* immutibleKillSpace(char* str){
+char* immutableKillSpace(char* str){
 	char *strNew;
 	char *strRet;
 	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
@@ -100,7 +100,7 @@ char* immutibleKillSpace(char* str){
 		str++;
 	}
 	*strNew = '\0';
-	mutibleKillSpace(strRet);
+	mutableKillSpace(strRet);
 	return strRet;
 }
 
@@ -148,7 +148,7 @@ static int isCorrect(char a){
 	return x;
 }
 
-void mutibleFilt(char* str){
+void mutableFilt(char* str){
 	char *strFirst;
 	char *strLast;
 
@@ -174,7 +174,7 @@ void mutibleFilt(char* str){
 	*str = '\0';
 }
 
-char* immutibleFilt(char* str){
+char* immutableFilt(char* str){
 	char *strNew;
 	char *strRet;
 	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
@@ -185,12 +185,12 @@ char* immutibleFilt(char* str){
 		str++;
 	}
 	*strNew = '\0';
-	mutibleFilt(strRet);
+	mutableFilt(strRet);
 	return strRet;
 }
 
 
-void mutibleStrip(char* str){
+void mutableStrip(char* str){
 	char *strFirst;
 	char *strLast;
 
@@ -216,7 +216,7 @@ void mutibleStrip(char* str){
 	*str = '\0';
 }
 
-char* immutibleStrip(char* str){
+char* immutableStrip(char* str){
 	char *strNew;
 	char *strRet;
 	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
@@ -227,6 +227,6 @@ char* immutibleStrip(char* str){
 		str++;
 	}
 	*strNew = '\0';
-	mutibleStrip(strRet);
+	mutableStrip(strRet);
 	return strRet;
 }

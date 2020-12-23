@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void mutibleEncodeCaesar(char* str, int x){
+void mutableEncodeCaesar(char* str, int x){
 	while (*str != '\0'){
 		if ( (*str >= 'A')&&(*str <= 'Z') ){
 			if ((*str + x) > 91){
@@ -25,7 +25,7 @@ void mutibleEncodeCaesar(char* str, int x){
 	}
 }
 
-char* immutibleEncodeCaesar(char* str, int x){
+char* immutableEncodeCaesar(char* str, int x){
 	char *strNew;
 	char *strRet;
 	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
@@ -36,12 +36,12 @@ char* immutibleEncodeCaesar(char* str, int x){
 		str++;
 	}
 	*strNew = '\0';
-	mutibleEncodeCaesar(strRet, x);
+	mutableEncodeCaesar(strRet, x);
 	return strRet;
 
 }
 
-void mutibleDecodeCaesar(char* str, int x){
+void mutableDecodeCaesar(char* str, int x){
 	while (*str != '\0'){
 		if ( (*str >= 'A')&&(*str <= 'Z') ){
 			if ((*str - x) < 65){
@@ -64,7 +64,7 @@ void mutibleDecodeCaesar(char* str, int x){
 
 }
 
-char* immutibleDecodeCaesar(char* str, int x){
+char* immutableDecodeCaesar(char* str, int x){
 	char *strNew;
 	char *strRet;
 	strNew = (char*)malloc(sizeof(char)*(strlen(str)+1));
@@ -75,13 +75,13 @@ char* immutibleDecodeCaesar(char* str, int x){
 		str++;
 	}
 	*strNew = '\0';
-	mutibleDecodeCaesar(strRet, x);
+	mutableDecodeCaesar(strRet, x);
 	return strRet;
 
 }
 
 
-void mutibleCodeXor(char* str, char* key){
+void mutableCodeXor(char* str, char* key){
 	if (strlen(key) < strlen(str)){
 		printf("Key length must not be shorter than the string.");
 		printf(" No changes made.\n");
@@ -96,7 +96,7 @@ void mutibleCodeXor(char* str, char* key){
 	}
 }
 
-char* immutibleCodeXor(char* str, char* key){
+char* immutableCodeXor(char* str, char* key){
 	if (strlen(key) < strlen(str)){
 		printf("Key length must not be shorter than the string.\n");
 		return (NULL);
@@ -111,7 +111,7 @@ char* immutibleCodeXor(char* str, char* key){
 		str++;
 	}
 	*strNew = '\0';
-	mutibleCodeXor(strRet, key);
+	mutableCodeXor(strRet, key);
 	return strRet;
 
 }
